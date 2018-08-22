@@ -1,0 +1,68 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,12pt]{article}
+%\usepackage[english,russian]{babel} 
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX,
+						Path=font/,
+						BoldFont=brillb,
+						ItalicFont=brilli,
+						BoldItalicFont=brillbi]{brill}
+\setsansfont[Ligatures=TeX,
+						Path=font/,
+						BoldFont=brillb,
+						ItalicFont=brilli,
+						BoldItalicFont=brillbi]{brill}
+
+\newfontfamily\tgtermes{TeX Gyre Termes}
+\makeatletter
+  \begingroup
+    \tgtermes
+    \DeclareFontShape{\f@encoding}{\rmdefault}{m}{sc}{%
+      <-> ssub * \f@family/m/sc}{}
+    \DeclareFontShape{\f@encoding}{\rmdefault}{bx}{sc}{%
+      <-> ssub * \f@family/bx/sc}{}
+  \endgroup
+\makeatother
+
+\usepackage{subcaption}
+\usepackage{hhline}
+\usepackage{enumitem}
+\setlist{nolistsep, leftmargin=5mm}
+\usepackage{longtable}
+\usepackage{multirow} 
+\usepackage{multicol} 
+\usepackage{setspace} 
+%\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+\singlespacing % Интерлиньяж 1
+\usepackage{geometry} % Простой способ задавать поля
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+\geometry{left=20mm}
+\geometry{right=20mm}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+	\hypersetup{ % Гиперссылки
+	colorlinks=true, % false: ссылки в рамках; true: цветные ссылки
+	linkcolor=black, % внутренние ссылки
+	citecolor=black, % на библиографию
+	filecolor=black, % на файлы
+	urlcolor=ForestGreen % на URL
+	}
+
+\usepackage{forest} % для рисования деревьев
+\usepackage{vowel} % для рисования трапеций гласных
+\usepackage[toc,page]{appendix}
+\usepackage{config/leipzig}
+\input{config/glosses.tex}
+\makeglossaries
+\usepackage{natbib}
+\bibpunct[: ]{[}{]}{;}{a}{}{,}
+\usepackage{philex} % пакет для примеров
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+	\setlength{\columnsep}{1.6cm}
+	
+\usepackage{footnote}
+\makesavenoteenv{tabular}
